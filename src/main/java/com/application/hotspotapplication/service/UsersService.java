@@ -17,8 +17,9 @@ public class UsersService {
 
   public String allUsers() {
     List<Users> usersList = dao.findAll();
-    String result = usersList.stream().map(user -> user.getFirstName()).collect(Collectors.joining(",")); ;
-    return result;
+    return usersList.stream()
+        .map(user -> user.getFirstName() + " " + user.getLastName() + ", " + user.getEmail())
+        .collect(Collectors.joining("\n"));
   }
 
   public Users findUserById(Long userId) {

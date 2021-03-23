@@ -1,0 +1,7 @@
+com/application/hotspotapplication/HotspotApplication.class
+com/application/hotspotapplication/controller/ApplicationControllerV1.class
+com/application/hotspotapplication/entity/Users.class
+com/application/hotspotapplication/dao/UsersDAO.class
+com/application/hotspotapplication/service/UsersService.class
+com/application/hotspotapplication/entity/AbstractEntity.class
+com/application/hotspotapplication/utils/Constants.class
