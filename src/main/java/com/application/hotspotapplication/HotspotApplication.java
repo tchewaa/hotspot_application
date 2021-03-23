@@ -12,9 +12,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 public class HotspotApplication extends SpringBootServletInitializer {
 
-  @Autowired
-  private JdbcTemplate jdbcTemplate;
-
   public static void main(String[] args) {
     SpringApplication.run(HotspotApplication.class, args);
   }

@@ -1,10 +1,10 @@
 package com.application.hotspotapplication.dao;
 
 import com.application.hotspotapplication.entity.Users;
+import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UsersDAO extends JpaRepository<Users, Long> {
-
 
   Users findUsersById(Long id);
 

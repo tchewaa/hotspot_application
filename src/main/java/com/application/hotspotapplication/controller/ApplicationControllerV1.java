@@ -8,6 +8,7 @@ import com.application.hotspotapplication.service.UsersService;
 import com.application.hotspotapplication.utils.Constants;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.util.List;
 import javax.inject.Inject;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -39,8 +40,6 @@ public class ApplicationControllerV1 {
     }
   }
 
-
-
   @RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
   public String findUserById(
       @PathVariable(name = "id", required = true) Long userId) {
@@ -50,6 +49,12 @@ public class ApplicationControllerV1 {
     }else{
       return "No User Found by that id";
     }
+  }
+
+  @RequestMapping(value = "/user/all", method = RequestMethod.GET)
+  public String allUsers() {
+    String result = usersService.allUsers();
+    return result;
   }
 
   @PostMapping(path = "/user/create", consumes = Constants.APPLICATION_JSON_VALUE, produces = Constants.APPLICATION_JSON_VALUE)
