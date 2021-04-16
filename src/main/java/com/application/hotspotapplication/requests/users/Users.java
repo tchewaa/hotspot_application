@@ -1,8 +1,9 @@
 package com.application.hotspotapplication.requests.users;
 
-import java.io.Serializable;
-import javax.persistence.*;
 import lombok.Data;
+
+import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "users")

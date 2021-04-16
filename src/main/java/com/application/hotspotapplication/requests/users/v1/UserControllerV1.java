@@ -1,23 +1,19 @@
 package com.application.hotspotapplication.requests.users.v1;
 
 
-import static com.application.hotspotapplication.utils.Constants.PASSWORD;
-
-import com.application.hotspotapplication.requests.users.UsersService;
 import com.application.hotspotapplication.requests.users.Users;
+import com.application.hotspotapplication.requests.users.UsersService;
 import com.application.hotspotapplication.utils.Constants;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import javax.inject.Inject;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import javax.inject.Inject;
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+import static com.application.hotspotapplication.utils.Constants.PASSWORD;
 
 @RestController
 @RequestMapping("users/v1")
