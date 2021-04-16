@@ -5,10 +5,9 @@ import com.application.hotspotapplication.requests.hotspots.Location;
 import com.application.hotspotapplication.requests.hotspots.LocationService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("hotspots/v1")
@@ -19,12 +18,23 @@ public class HotSpotControllerV1 {
   private LocationService locationService;
 
   @PutMapping("/create")
-  public Location createHotspotReport(@RequestParam String streetAddress,@RequestParam String areaName,
-                                      @RequestParam String cityName,@RequestParam int postalCode,
+  public Location createHotspotReport(@RequestParam String streetAddress,
+                                      @RequestParam String areaName,
+                                      @RequestParam String cityName,
+                                      @RequestParam int postalCode,
                                       @RequestParam int categoryId ){
-    Location location = locationService.createHotspotReport(streetAddress, areaName,cityName,postalCode, categoryId);
+    Location location =
+            locationService.createHotspotReport(streetAddress, areaName,cityName,postalCode, categoryId);
     return location;
   }
 
+  @GetMapping("/{region}")
+  public List<Location> getLocationsByRegion(@PathVariable(name = "region", required = true) String region){
+      return locationService.getHotspotsByRegion(region);
+  }
+  @GetMapping("/all")
+  public List<Location> getAllHotSpots(){
+    return locationService.getAllHotSpots();
+  }
 
 }

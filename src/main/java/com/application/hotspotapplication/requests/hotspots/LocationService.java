@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.sql.Date;
-import java.util.HashMap;
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -19,9 +19,8 @@ public class LocationService {
   private LocationDAO dao;
   @Value("${api.key}")
   private String positionStackApiKey;
-  private HashMap<String, List<Vector2>> provinceHotspot; //basically just for easy lookup - have province as key and list of hotspots in the province as values
   private final RestTemplate restTemplate;
-  
+
   public LocationService(RestTemplateBuilder restTemplateBuilder){
     this.restTemplate = restTemplateBuilder.build();
   }
@@ -29,12 +28,23 @@ public class LocationService {
   public Location createHotspotReport(String streetAddress, String areaName, String cityName,int postalCode, int category){
     String addressQuery = streetAddress + ", " + areaName + ", " + cityName + ", " + postalCode;
     Location curLocation = getHotspotLocation(addressQuery, category);
-    if(curLocation != null){
+    if(curLocation != null && curLocation.getConfidence() >= 0.5){
       curLocation.setDate(new Date(System.currentTimeMillis()));
+      curLocation.setStreetAddress(streetAddress);
+      curLocation.setCity(cityName);
+      curLocation.setNeighbourhood(areaName);
       dao.save(curLocation);
     }
 
     return curLocation;
+  }
+
+  public List<Location> getHotspotsByRegion(String region){
+    return dao.findByRegion(region);
+  }
+
+  public List<Location> getAllHotSpots(){
+    return dao.findAll();
   }
 
   private Location getHotspotLocation(String addressQuery, int category){
@@ -44,11 +54,22 @@ public class LocationService {
     ResponseEntity<LocationData> responseEntity =  restTemplate.getForEntity(requestURL, LocationData.class);
 
     if(responseEntity.getStatusCode() == HttpStatus.OK) {
-      curLocation = responseEntity.getBody().getData().get(0);
+      curLocation = getConfidentLocation(responseEntity.getBody().getData());
       curLocation.setCategory(category);
     }
     return curLocation;
   }
+
+  /**
+   * @return Location if the "confidence" is >= 0.5, if multiple, returns Location with highest "confidence"
+   */
+  private Location getConfidentLocation(List<Location> locations){
+    Location maxConfidenceLocation =
+            locations.stream()
+            .max(Comparator.comparing(Location::getConfidence)).get();
+    return maxConfidenceLocation;
+  }
+
 
 
 }
