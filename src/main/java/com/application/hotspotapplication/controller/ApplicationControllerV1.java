@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("hotspotapp/v1")
 @Slf4j
 public class ApplicationControllerV1 {
 
@@ -40,6 +39,15 @@ public class ApplicationControllerV1 {
     }
   }
 
+  @RequestMapping(value = "/",method = RequestMethod.GET)
+  public String home(String ema)
+  {
+      System.out.println(ema);
+      return ema;
+
+  }
+
+
   @RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
   public String findUserById(
       @PathVariable(name = "id", required = true) Long userId) {
@@ -57,10 +65,8 @@ public class ApplicationControllerV1 {
     return result;
   }
 
-  @PostMapping(path = "/user/create", consumes = Constants.APPLICATION_JSON_VALUE, produces = Constants.APPLICATION_JSON_VALUE)
-  public void createUser(@RequestBody Users user) {
-    usersService.createUser(user);
-  }
+
+
 
 
 }

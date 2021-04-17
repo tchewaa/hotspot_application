@@ -26,8 +26,17 @@ public class UsersService {
     return dao.findUsersById(userId);
   }
 
-  public void createUser(Users users) {
-    dao.save(users);
+  public void createUser(String email, String fname ,String lname) {
+    Users existUser = dao.findUsersByEmail(email);
+    if(existUser == null)
+    {
+      Users newUser = new Users();
+      newUser.setEmail(email);
+      newUser.setFirstName(fname);
+      newUser.setLastName(lname);
+      dao.save(newUser);
+    }
+
   }
 
 }
