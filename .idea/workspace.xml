@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9dbe5efa-fbf6-4fc5-a9f6-4479a5840a02" name="Default Changelist" comment="Created Blank Structure as reference p">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/blank/Blank.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/blank/BlankDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/blank/BlankService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/blank/v1/BlankControllerV1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/v1/HotSpotControllerV1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/v1/HotSpotControllerV1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/users/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/users/Users.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/users/UsersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/users/UsersService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/users/v1/UserControllerV1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/users/v1/UserControllerV1.java" afterDir="false" />
-    </list>
+    <list default="true" id="9dbe5efa-fbf6-4fc5-a9f6-4479a5840a02" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path=".idea/uiDesigner.xml" />
@@ -98,8 +88,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/users/UsersService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="36" column="44" selection-start-line="36" selection-start-column="44" selection-end-line="36" selection-end-column="44" />
+            <state relative-caret-position="350">
+              <caret line="48" column="76" selection-start-line="48" selection-start-column="76" selection-end-line="48" selection-end-column="76" />
             </state>
           </provider>
         </entry>
@@ -188,13 +178,13 @@
         <option value="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/blank/hotspots/BlankDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/blank/hotspots/Blank.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/blank/hotspots/v1/BlankControllerV1.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/v1/HotSpotControllerV1.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/blank/BlankDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/blank/v1/BlankControllerV1.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/users/v1/UserControllerV1.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/users/Users.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/blank/BlankService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/users/UsersService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/v1/HotSpotControllerV1.java" />
       </list>
     </option>
   </component>
@@ -347,7 +337,7 @@
       <workItem from="1616510459489" duration="958000" />
       <workItem from="1616512902076" duration="3338000" />
       <workItem from="1618380538632" duration="3815000" />
-      <workItem from="1618737083867" duration="9742000" />
+      <workItem from="1618737083867" duration="10012000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1616510758999</created>
@@ -377,11 +367,18 @@
       <option name="project" value="LOCAL" />
       <updated>1618743436993</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Created Blank Structure as reference purposes&#10;Made fixes to User Service - Can be improved">
+      <created>1618747007027</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1618747007027</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24357000" />
+    <option name="totallyTimeSpent" value="24627000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1011" extended-state="6" />
@@ -399,7 +396,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32914287" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.17371428" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -410,7 +407,7 @@
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32914287" />
       <window_info anchor="bottom" id="Java Enterprise" order="12" />
       <window_info anchor="bottom" id="Database Changes" order="13" />
-      <window_info anchor="bottom" x="337" y="357" width="1306" height="287" id="Version Control" order="14" side_tool="true" type="WINDOWED" weight="0.18514286" />
+      <window_info anchor="bottom" x="332" y="369" width="1316" height="280" id="Version Control" order="14" side_tool="true" type="WINDOWED" weight="0.18514286" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" show_stripe_button="false" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -471,7 +468,8 @@
     <MESSAGE value="Lambda change" />
     <MESSAGE value="Added Generic Utility&#10;Fixed Project structure&#10;Added Hotspot Controller&#10;Added Exceptions (TODO: FIX EXCEPTION HANDLING)" />
     <MESSAGE value="Added more requests to User&#10;Fixed API Response Exceptions  - Can be bettered&#10;Added column to User Table" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added more requests to User&#10;Fixed API Response Exceptions  - Can be bettered&#10;Added column to User Table" />
+    <MESSAGE value="Created Blank Structure as reference purposes&#10;Made fixes to User Service - Can be improved" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created Blank Structure as reference purposes&#10;Made fixes to User Service - Can be improved" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -741,8 +739,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/users/UsersService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="36" column="44" selection-start-line="36" selection-start-column="44" selection-end-line="36" selection-end-column="44" />
+        <state relative-caret-position="350">
+          <caret line="48" column="76" selection-start-line="48" selection-start-column="76" selection-end-line="48" selection-end-column="76" />
         </state>
       </provider>
     </entry>
