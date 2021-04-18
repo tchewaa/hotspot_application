@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("hotspot/v1")
+@RequestMapping("hotspot/v1/hotspots/")
 @Slf4j
 public class HotSpotControllerV1 {
 

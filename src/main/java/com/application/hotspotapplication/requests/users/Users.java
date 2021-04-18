@@ -27,7 +27,7 @@ public class Users {
   @Column(name = "email")
   private String email;
 
-  @Column(name = "active")
-  private String active;
+  @Column(name = "active", columnDefinition = "bit default false")
+  private Boolean active;
 
 }
