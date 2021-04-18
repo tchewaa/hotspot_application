@@ -18,79 +18,79 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("hotspot/v1/user/")
+@RequestMapping("hotspot/v1")
 @Slf4j
 public class UserControllerV1 {
 
   @Inject
   private UsersService usersService;
 
-  @PostMapping(path = "/create", consumes = Constants.APPLICATION_JSON_VALUE, produces = Constants.APPLICATION_JSON_VALUE)
+  @PostMapping(path = "/user/create", consumes = Constants.APPLICATION_JSON_VALUE, produces = Constants.APPLICATION_JSON_VALUE)
   public ResponseEntity createUser(@RequestBody Users user) {
     try {
       usersService.createUser(user);
-      return new ResponseEntity(HttpStatus.OK);
-    } catch (ApiRequestException e) {
-      throw new ApiRequestException(e.getMessage(), e, e.getHttpStatus());
+      return new ResponseEntity<Users>(user, HttpStatus.OK);
+    } catch (Exception e) {
+      throw new ApiRequestException(e.getMessage(), e, HttpStatus.BAD_REQUEST);
     }
   }
 
-  @PostMapping(path = "/update", consumes = Constants.APPLICATION_JSON_VALUE, produces = Constants.APPLICATION_JSON_VALUE)
+  @PostMapping(path = "/user/update", consumes = Constants.APPLICATION_JSON_VALUE, produces = Constants.APPLICATION_JSON_VALUE)
   public ResponseEntity updateUser(@RequestBody Users user) {
     try {
       usersService.updateUser(user);
       return new ResponseEntity(HttpStatus.OK);
-    } catch (ApiRequestException e) {
-      throw new ApiRequestException(e.getMessage(), e, e.getHttpStatus());
+    } catch (Exception e) {
+      throw new ApiRequestException(e.getMessage(), e, HttpStatus.BAD_REQUEST);
     }
   }
 
-  @PostMapping(path = "/{email}/activate", consumes = Constants.APPLICATION_JSON_VALUE, produces = Constants.APPLICATION_JSON_VALUE)
+  @PostMapping(path = "/user/{email}/activate", consumes = Constants.APPLICATION_JSON_VALUE, produces = Constants.APPLICATION_JSON_VALUE)
   public ResponseEntity activateUser(@PathVariable(name = "email", required = true) String email) {
     try {
       usersService.activateUser(email);
       return new ResponseEntity(HttpStatus.OK);
-    } catch (ApiRequestException e) {
-      throw new ApiRequestException(e.getMessage(), e, e.getHttpStatus());
+    } catch (Exception e) {
+      throw new ApiRequestException(e.getMessage(), e, HttpStatus.BAD_REQUEST);
     }
   }
 
-  @PostMapping(path = "/{email}/deactivate", consumes = Constants.APPLICATION_JSON_VALUE, produces = Constants.APPLICATION_JSON_VALUE)
+  @PostMapping(path = "/user/{email}/deactivate", consumes = Constants.APPLICATION_JSON_VALUE, produces = Constants.APPLICATION_JSON_VALUE)
   public ResponseEntity deActivateUser(@PathVariable(name = "email", required = true) String email) {
     try {
       usersService.deActivateUser(email);
       return new ResponseEntity<Users>(HttpStatus.OK);
-    } catch (ApiRequestException e) {
-      throw new ApiRequestException(e.getMessage(), e, e.getHttpStatus());
+    } catch (Exception e) {
+      throw new ApiRequestException(e.getMessage(), e, HttpStatus.BAD_REQUEST);
     }
   }
 
 
-  @GetMapping(value = "/all")
+  @GetMapping(value = "/user/all")
   public ResponseEntity allUsers() {
     List<Users> users =   usersService.allUsers();
     return new ResponseEntity<List<Users>>(users, HttpStatus.OK);
   }
 
-  @GetMapping(value = "/id/{id}")
+  @GetMapping(value = "/user/id/{id}")
   public ResponseEntity findUserById(
       @PathVariable(name = "id", required = true) Long userId) {
     try {
       Users users = (Users) usersService.findUserById(userId);
       return new ResponseEntity<Users>(users, HttpStatus.OK);
-    } catch (ApiRequestException e) {
-      throw new ApiRequestException(e.getMessage(), e, e.getHttpStatus());
+    } catch (Exception e) {
+      throw new ApiRequestException(e.getMessage(), HttpStatus.NOT_FOUND);
     }
   }
 
-  @GetMapping(value = "/email/{email}")
+  @GetMapping(value = "/user/email/{email}")
   public ResponseEntity findUserById(
       @PathVariable(name = "email", required = true) String email) {
     try {
       Users users = (Users) usersService.findUserByEmail(email);
       return new ResponseEntity<Users>(users, HttpStatus.OK);
-    } catch (ApiRequestException e) {
-      throw new ApiRequestException(e.getMessage(), e, e.getHttpStatus());
+    } catch (Exception e) {
+      throw new ApiRequestException(e.getMessage(), HttpStatus.NOT_FOUND);
     }
   }
 

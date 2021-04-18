@@ -14,39 +14,31 @@ public class UsersService {
   private UsersDAO dao;
 
   @SneakyThrows
-  private void create(Users user){
-    if (user.getId() == null) dao.save(user);
-    else update(user);
-  }
-
-  @SneakyThrows
-  private void update(Users user){
-    if (user != null) dao.updateUser(user.getFirstName(), user.getLastName(), user.getEmail(), user.getId());
-  }
-
-  @SneakyThrows
   public void createUser(Users users) {
-    Users exsitingUser = dao.findUserByEmail(users.getEmail());
-    if (exsitingUser == null) create(users);
+    Users exsitingUser = findUserByEmail(users.getEmail());
+    if (exsitingUser == null) dao.save(users);
     else throw new ApiRequestException("Duplicate User!", HttpStatus.BAD_REQUEST);
   }
 
   @SneakyThrows
   public void updateUser(Users users) {
     Users exsitingUser = findUserById(users.getId());
-    if (exsitingUser != null) update(users);
+    if (exsitingUser != null) dao.updateUser(users.getFirstName(), users.getLastName(), users.getEmail(), users.getId());
+    else throw new ApiRequestException("User not found!", HttpStatus.NOT_FOUND);
   }
 
   @SneakyThrows
   public void activateUser(String email) {
     Users exsitingUser = findUserByEmail(email);
     if (exsitingUser != null) dao.activateUser(true, exsitingUser.getId());
+    else throw new ApiRequestException("User not found!", HttpStatus.NOT_FOUND);
   }
 
   @SneakyThrows
   public void deActivateUser(String email) {
     Users exsitingUser = findUserByEmail(email);
     if (exsitingUser != null) dao.activateUser(false, exsitingUser.getId());
+    else throw new ApiRequestException("User not found!", HttpStatus.NOT_FOUND);
   }
 
   @SneakyThrows
