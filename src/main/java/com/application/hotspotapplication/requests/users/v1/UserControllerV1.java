@@ -1,59 +1,99 @@
 package com.application.hotspotapplication.requests.users.v1;
 
 
+import com.application.hotspotapplication.exceptions.ApiRequestException;
 import com.application.hotspotapplication.requests.users.Users;
 import com.application.hotspotapplication.requests.users.UsersService;
 import com.application.hotspotapplication.utils.Constants;
+import java.util.List;
+import javax.inject.Inject;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
-import javax.inject.Inject;
-import java.sql.Connection;
-import java.sql.DriverManager;
-
-import static com.application.hotspotapplication.utils.Constants.PASSWORD;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("users/v1")
+@RequestMapping("hotspot/v1")
 @Slf4j
 public class UserControllerV1 {
 
   @Inject
   private UsersService usersService;
 
-  //TODO: FIX API Statuses and Error Handling
-  @GetMapping(value = "/checkHealth")
-  public String checkHealth() {
-    Connection c = null;
+  @PostMapping(path = "/user/create", consumes = Constants.APPLICATION_JSON_VALUE, produces = Constants.APPLICATION_JSON_VALUE)
+  public ResponseEntity createUser(@RequestBody Users user) {
     try {
-      Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-      c = DriverManager.getConnection(Constants.URL, Constants.USER, PASSWORD);
-      return "UP";
+      usersService.createUser(user);
+      return new ResponseEntity<Users>(user, HttpStatus.OK);
     } catch (Exception e) {
-      log.error(e.getMessage());
-      return "DOWN";
+      throw new ApiRequestException(e.getMessage(), e, HttpStatus.BAD_REQUEST);
     }
   }
 
-  @GetMapping(value = "/{id}")
+  @PostMapping(path = "/user/update", consumes = Constants.APPLICATION_JSON_VALUE, produces = Constants.APPLICATION_JSON_VALUE)
+  public ResponseEntity updateUser(@RequestBody Users user) {
+    try {
+      usersService.updateUser(user);
+      return new ResponseEntity(HttpStatus.OK);
+    } catch (Exception e) {
+      throw new ApiRequestException(e.getMessage(), e, HttpStatus.BAD_REQUEST);
+    }
+  }
+
+  @PostMapping(path = "/user/{email}/activate", consumes = Constants.APPLICATION_JSON_VALUE, produces = Constants.APPLICATION_JSON_VALUE)
+  public ResponseEntity activateUser(@PathVariable(name = "email", required = true) String email) {
+    try {
+      usersService.activateUser(email);
+      return new ResponseEntity(HttpStatus.OK);
+    } catch (Exception e) {
+      throw new ApiRequestException(e.getMessage(), e, HttpStatus.BAD_REQUEST);
+    }
+  }
+
+  @PostMapping(path = "/user/{email}/deactivate", consumes = Constants.APPLICATION_JSON_VALUE, produces = Constants.APPLICATION_JSON_VALUE)
+  public ResponseEntity deActivateUser(@PathVariable(name = "email", required = true) String email) {
+    try {
+      usersService.deActivateUser(email);
+      return new ResponseEntity<Users>(HttpStatus.OK);
+    } catch (Exception e) {
+      throw new ApiRequestException(e.getMessage(), e, HttpStatus.BAD_REQUEST);
+    }
+  }
+
+
+  @GetMapping(value = "/user/all")
+  public ResponseEntity allUsers() {
+    List<Users> users =   usersService.allUsers();
+    return new ResponseEntity<List<Users>>(users, HttpStatus.OK);
+  }
+
+  @GetMapping(value = "/user/id/{id}")
   public ResponseEntity findUserById(
       @PathVariable(name = "id", required = true) Long userId) {
-    Users users = (Users) usersService.findUserById(userId);
-    return  new ResponseEntity<Users>(users, HttpStatus.OK);
+    try {
+      Users users = (Users) usersService.findUserById(userId);
+      return new ResponseEntity<Users>(users, HttpStatus.OK);
+    } catch (Exception e) {
+      throw new ApiRequestException(e.getMessage(), HttpStatus.NOT_FOUND);
+    }
   }
 
-  @GetMapping(value = "/all")
-  public String allUsers() {
-    String result = usersService.allUsers();
-    return result;
+  @GetMapping(value = "/user/email/{email}")
+  public ResponseEntity findUserById(
+      @PathVariable(name = "email", required = true) String email) {
+    try {
+      Users users = (Users) usersService.findUserByEmail(email);
+      return new ResponseEntity<Users>(users, HttpStatus.OK);
+    } catch (Exception e) {
+      throw new ApiRequestException(e.getMessage(), HttpStatus.NOT_FOUND);
+    }
   }
 
-  @PostMapping(path = "/create", consumes = Constants.APPLICATION_JSON_VALUE, produces = Constants.APPLICATION_JSON_VALUE)
-  public void createUser(@RequestBody Users user) {
-    usersService.createUser(user);
-  }
 
 
 }
