@@ -1,8 +1,11 @@
 package com.application.hotspotapplication.requests.hotspots;
 
+import lombok.NoArgsConstructor;
+
 import java.io.Serializable;
 import java.util.List;
 
+@NoArgsConstructor
 public class LocationData implements Serializable {
     private List<Location> data;
 

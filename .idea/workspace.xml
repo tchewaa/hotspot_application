@@ -6,14 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="9dbe5efa-fbf6-4fc5-a9f6-4479a5840a02" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/Location.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/LocationDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/LocationDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/LocationData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/LocationData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/LocationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/LocationService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/v1/HotSpotControllerV1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/v1/HotSpotControllerV1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/hotspots/Location.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/hotspots/Location.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/hotspots/LocationDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/hotspots/LocationDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/hotspots/LocationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/hotspots/LocationService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/hotspots/v1/HotSpotControllerV1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/hotspots/v1/HotSpotControllerV1.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -337,15 +334,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Lambda change" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/exceptions/ApiExpetionHandler.java</url>
-          <line>14</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="responseEntity.getBody()" language="JAVA" />

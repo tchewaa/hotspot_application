@@ -28,16 +28,17 @@ public class LocationService {
   public Location createHotspotReport(String streetAddress, String areaName, String cityName,int postalCode, int category){
     String addressQuery = streetAddress + ", " + areaName + ", " + cityName + ", " + postalCode;
     Location curLocation = getHotspotLocation(addressQuery, category);
-    if(curLocation != null && curLocation.getConfidence() >= 0.5){
+    if(curLocation != null && curLocation.getConfidence() >= 0.5){ //@TODO find a better more accurate way of determining if location is correct.
       curLocation.setDate(new Date(System.currentTimeMillis()));
       curLocation.setStreetAddress(streetAddress);
       curLocation.setCity(cityName);
       curLocation.setNeighbourhood(areaName);
       dao.save(curLocation);
     }
-
     return curLocation;
   }
+
+  public List<Location> getHotspotsByNeighbourhood(String neighbourhood) {return dao.findByNeighbourhood(neighbourhood);}
 
   public List<Location> getHotspotsByRegion(String region){
     return dao.findByRegion(region);
@@ -50,12 +51,12 @@ public class LocationService {
   private Location getHotspotLocation(String addressQuery, int category){
     Location curLocation = null;
 
-    String requestURL = Constants.POSSITIONSTACK_API_URL_FORWARD + positionStackApiKey + "&query=" + addressQuery;
+    String requestURL = Constants.POSSITIONSTACK_API_URL_FORWARD + positionStackApiKey + "&query=" + addressQuery + "&country=ZA";
     ResponseEntity<LocationData> responseEntity =  restTemplate.getForEntity(requestURL, LocationData.class);
 
     if(responseEntity.getStatusCode() == HttpStatus.OK) {
       curLocation = getConfidentLocation(responseEntity.getBody().getData());
-      curLocation.setCategory(category);
+      curLocation.setCategoryId(category);
     }
     return curLocation;
   }

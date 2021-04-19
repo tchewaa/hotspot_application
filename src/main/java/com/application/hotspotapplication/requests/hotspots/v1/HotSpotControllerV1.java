@@ -28,10 +28,16 @@ public class HotSpotControllerV1 {
     return location;
   }
 
-  @GetMapping("/{region}")
-  public List<Location> getLocationsByRegion(@PathVariable(name = "region", required = true) String region){
+  @GetMapping("/neighbourhood")
+  public List<Location> getLocationsByNeighbourhood(@RequestParam(name = "neighbourhood", required = true) String neighbourhood){
+    return locationService.getHotspotsByNeighbourhood(neighbourhood);
+  }
+
+  @GetMapping("/region")
+  public List<Location> getLocationsByRegion(@RequestParam(name = "region", required = true) String region){
       return locationService.getHotspotsByRegion(region);
   }
+
   @GetMapping("/all")
   public List<Location> getAllHotSpots(){
     return locationService.getAllHotSpots();
