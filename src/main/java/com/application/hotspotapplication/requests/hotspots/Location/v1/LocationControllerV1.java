@@ -1,8 +1,8 @@
-package com.application.hotspotapplication.requests.hotspots.v1;
+package com.application.hotspotapplication.requests.hotspots.Location.v1;
 
 
-import com.application.hotspotapplication.requests.hotspots.Location;
-import com.application.hotspotapplication.requests.hotspots.LocationService;
+import com.application.hotspotapplication.requests.hotspots.Location.Location;
+import com.application.hotspotapplication.requests.hotspots.Location.LocationService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("hotspots/v1")
+@RequestMapping("locations/v1")
 @Slf4j
-public class HotSpotControllerV1 {
+public class LocationControllerV1 {
 
   @Autowired
   private LocationService locationService;
@@ -21,10 +21,9 @@ public class HotSpotControllerV1 {
   public Location createHotspotReport(@RequestParam String streetAddress,
                                       @RequestParam String areaName,
                                       @RequestParam String cityName,
-                                      @RequestParam int postalCode,
-                                      @RequestParam int categoryId ){
+                                      @RequestParam int postalCode){
     Location location =
-            locationService.createHotspotReport(streetAddress, areaName,cityName,postalCode, categoryId);
+            locationService.createHotspotReport(streetAddress, areaName,cityName,postalCode);
     return location;
   }
 

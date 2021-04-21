@@ -179,7 +179,8 @@ CREATE TABLE [dbo].[users](
     [user_id] [int] IDENTITY(1,1) PRIMARY KEY CLUSTERED ([user_id] ASC) NOT NULL,
     [first_name] [varchar](100) NOT NULL,
 	[last_name] [varchar](100) NOT NULL,
-	[email] [varchar](100) NOT NULL
+	[email] [varchar](100) NOT NULL,
+	[active] [BIT] DEFAULT 'FALSE' NOT NULL
 );
 GO
 

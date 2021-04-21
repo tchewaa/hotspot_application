@@ -1,15 +1,17 @@
-package com.application.hotspotapplication.requests.hotspots;
+package com.application.hotspotapplication.requests.hotspots.Location;
 
+import com.application.hotspotapplication.requests.hotspots.HotspotLocation.Hotspot;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
 
-@Entity
-@Table(name = "location")
+@Entity(name = "location")
+@Table(name = "`location`")
 @Data
 @ToString
 @NoArgsConstructor
@@ -22,14 +24,6 @@ public class Location implements Serializable {
   private Double latitude;
   @Column(name = "logitude")
   private Double longitude;
-  @Column(name = "description")
-  private String description;
-  @Column(name = "scale_serious")
-  private Integer scaleSeriousness;
-  @Column(name = "category_id")
-  private Integer categoryId;
-  @Column(name = "date")
-  private Date date;
   @Column(name = "street_address")
   private String streetAddress;
   @Column(name = "region")
@@ -42,4 +36,11 @@ public class Location implements Serializable {
   private String city;
   @Column(name = "confidence")
   private Double confidence;
+
+  @OneToMany(
+          mappedBy = "location",
+          cascade = CascadeType.ALL
+  )
+  List<Hotspot> hotspots = new ArrayList<>();
+
 }

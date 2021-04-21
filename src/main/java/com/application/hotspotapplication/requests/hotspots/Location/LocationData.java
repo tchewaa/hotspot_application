@@ -1,4 +1,4 @@
-package com.application.hotspotapplication.requests.hotspots;
+package com.application.hotspotapplication.requests.hotspots.Location;
 
 import lombok.NoArgsConstructor;
 

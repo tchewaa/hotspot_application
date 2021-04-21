@@ -1,12 +1,8 @@
 package com.application.hotspotapplication.requests.users;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 import lombok.Data;
+
+import javax.persistence.*;
 
 @Entity
 @Table(name = "users")
@@ -27,7 +23,7 @@ public class Users {
   @Column(name = "email")
   private String email;
 
-  @Column(name = "active", columnDefinition = "bit default false")
+  @Column(name = "active")
   private Boolean active;
 
 }

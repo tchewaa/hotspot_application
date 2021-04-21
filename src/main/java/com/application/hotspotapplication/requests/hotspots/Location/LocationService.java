@@ -1,4 +1,4 @@
-package com.application.hotspotapplication.requests.hotspots;
+package com.application.hotspotapplication.requests.hotspots.Location;
 
 import com.application.hotspotapplication.utils.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import java.sql.Date;
 import java.util.Comparator;
 import java.util.List;
 
@@ -25,14 +24,17 @@ public class LocationService {
     this.restTemplate = restTemplateBuilder.build();
   }
 
-  public Location createHotspotReport(String streetAddress, String areaName, String cityName,int postalCode, int category){
+  public Location createHotspotReport(String streetAddress, String areaName, String cityName,int postalCode){
     String addressQuery = streetAddress + ", " + areaName + ", " + cityName + ", " + postalCode;
-    Location curLocation = getHotspotLocation(addressQuery, category);
-    if(curLocation != null && curLocation.getConfidence() >= 0.5){ //@TODO find a better more accurate way of determining if location is correct.
-      curLocation.setDate(new Date(System.currentTimeMillis()));
+    Location curLocation = getHotspotLocation(addressQuery);
+    if(!dao.findByLatitudeAndLongitude(curLocation.getLatitude(), curLocation.getLongitude()).isEmpty()){
+      return dao.findByLatitudeAndLongitude(curLocation.getLatitude(), curLocation.getLongitude()).get(0);
+    }
+    if(curLocation.getConfidence() >= 0.5){ //@TODO find a better more accurate way of determining if location is correct.
       curLocation.setStreetAddress(streetAddress);
       curLocation.setCity(cityName);
       curLocation.setNeighbourhood(areaName);
+      curLocation.setPostalCode(postalCode);
       dao.save(curLocation);
     }
     return curLocation;
@@ -48,7 +50,7 @@ public class LocationService {
     return dao.findAll();
   }
 
-  private Location getHotspotLocation(String addressQuery, int category){
+  private Location getHotspotLocation(String addressQuery){
     Location curLocation = null;
 
     String requestURL = Constants.POSSITIONSTACK_API_URL_FORWARD + positionStackApiKey + "&query=" + addressQuery + "&country=ZA";
@@ -56,7 +58,6 @@ public class LocationService {
 
     if(responseEntity.getStatusCode() == HttpStatus.OK) {
       curLocation = getConfidentLocation(responseEntity.getBody().getData());
-      curLocation.setCategoryId(category);
     }
     return curLocation;
   }
