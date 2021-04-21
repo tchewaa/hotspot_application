@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class HotspotService {
@@ -22,9 +23,26 @@ public class HotspotService {
     public Hotspot create(String address,String areaName, String cityName,int postalCode, String categoryName){
         Location location = locationService.createHotspotReport(address, areaName, cityName, postalCode);
         Category category = categoryService.create(categoryName);
-        Hotspot hotspot = new Hotspot(location, category); //@TODO need to check if hotspot has unique address & category in order to increment num reports
-        dao.save(hotspot);
-        return hotspot;
+        Hotspot newHotspot = new Hotspot(location, category);
+
+        boolean exists = dao.findAll().stream().anyMatch(hotspot -> hotspot.id.getCategoryId().equals(category.getId()) && hotspot.id.getLocationId().equals(location.getId()));
+        if(exists){
+            return incrementExistingHotspotReport(location.getId(), category.getId());
+        }
+        newHotspot.addReport();
+        dao.save(newHotspot);
+        return newHotspot;
+    }
+
+    private Hotspot incrementExistingHotspotReport(Long locationId, Long categoryId) {
+        Optional<Hotspot> cur =  dao.findAll().stream().filter(hotspot ->  hotspot.id.getCategoryId().equals(categoryId) && hotspot.id.getLocationId().equals(locationId)).findFirst();
+
+        if(cur.isPresent()){
+            cur.get().addReport();
+            dao.save(cur.get());
+            return cur.get();
+        }
+        return null;
     }
 
     public List<Hotspot> getAll(){

@@ -32,12 +32,16 @@ public class Hotspot  {
   Category category;
 
   @Column(name = "num_reports")
-  private Integer numReports;
+  private Integer numReports =0;
 
   public Hotspot(Location location, Category category){
       this.category = category;
       this.location = location;
       this.id = new HotspotId(location.getId(), category.getId());
+  }
+
+  public void addReport(){
+    numReports++;
   }
 
 }
