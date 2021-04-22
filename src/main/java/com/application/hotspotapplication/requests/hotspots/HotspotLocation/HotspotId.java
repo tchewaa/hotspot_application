@@ -4,7 +4,6 @@ package com.application.hotspotapplication.requests.hotspots.HotspotLocation;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import java.io.Serializable;

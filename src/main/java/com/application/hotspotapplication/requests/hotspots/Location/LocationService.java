@@ -41,13 +41,13 @@ public class LocationService {
     return curLocation;
   }
 
-  public List<Location> getHotspotsByNeighbourhood(String neighbourhood) {return dao.findByNeighbourhood(neighbourhood);}
+  public List<Location> getHotspotLocationByNeighbourhood(String neighbourhood) {return dao.findByNeighbourhood(neighbourhood);}
 
-  public List<Location> getHotspotsByRegion(String region){
+  public List<Location> getHotspotLocationsByRegion(String region){
     return dao.findByRegion(region);
   }
 
-  public List<Location> getAllHotSpots(){
+  public List<Location> getAllHotspotLocations(){
     return dao.findAll();
   }
 
