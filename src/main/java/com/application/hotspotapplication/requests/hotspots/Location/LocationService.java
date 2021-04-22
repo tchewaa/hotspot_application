@@ -11,6 +11,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class LocationService {
@@ -62,14 +63,14 @@ public class LocationService {
     return curLocation;
   }
 
-  /**
-   * @return Location if the "confidence" is >= 0.5, if multiple, returns Location with highest "confidence"
-   */
+  public Optional<Location> findLocationById(Long id){
+    return dao.findById(id);
+  }
+
+
   private Location getConfidentLocation(List<Location> locations){
-    Location maxConfidenceLocation =
-            locations.stream()
-            .max(Comparator.comparing(Location::getConfidence)).get();
-    return maxConfidenceLocation;
+    return locations.stream().max(Comparator.comparing(Location::getConfidence)).get();
+
   }
 
 

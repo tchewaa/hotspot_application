@@ -7,6 +7,7 @@ import com.application.hotspotapplication.requests.hotspots.Location.LocationSer
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,6 +21,7 @@ public class HotspotService {
 
     @Autowired
     private CategoryService categoryService;
+
     public Hotspot create(String address,String areaName, String cityName,int postalCode, String categoryName){
         Location location = locationService.createHotspotReport(address, areaName, cityName, postalCode);
         Category category = categoryService.create(categoryName);
@@ -44,6 +46,18 @@ public class HotspotService {
         }
         return null;
     }
+
+    public List<Hotspot> getHotspotsByRegion(String region){
+        List<Location> regionLocations =  locationService.getHotspotsByRegion(region);
+        List<Hotspot> hotspots = new ArrayList<>();
+
+        regionLocations.forEach(location -> {
+            hotspots.addAll(dao.findAllByLocationId(location.getId()));
+        });
+
+        return hotspots;
+    }
+
 
     public List<Hotspot> getAll(){
         return dao.findAll();

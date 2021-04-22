@@ -41,6 +41,6 @@ public class Location implements Serializable {
           mappedBy = "location",
           cascade = CascadeType.ALL
   )
-  List<Hotspot> hotspots = new ArrayList<>();
+  private List<Hotspot> hotspots = new ArrayList<>();
 
 }

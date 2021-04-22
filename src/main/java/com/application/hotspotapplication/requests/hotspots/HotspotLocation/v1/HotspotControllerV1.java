@@ -32,4 +32,17 @@ public class HotspotControllerV1 {
         return hotspotService.getAll();
     }
 
+    @GetMapping("/region/{region}")
+    public List<Hotspot> getHotspotsByRegion(@PathVariable(name = "region", required = true) String region){
+        return hotspotService.getHotspotsByRegion(region);
+    }
+
+    @GetMapping("/{neighbourhood}")
+    public List<Hotspot> getHotspotsByNeighbourhood(@PathVariable(name = "neighbourhood", required = true) String neighbourhood){
+        return null;
+    }
+
+    //@todo have options that allow users to view their specific hotspot sightings and update/delete the ones theyve created.
+
+
 }
