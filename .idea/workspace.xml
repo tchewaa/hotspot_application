@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9dbe5efa-fbf6-4fc5-a9f6-4479a5840a02" name="Default Changelist" comment="created many to many relationship between category and locations">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/Category/CategoryDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/Category/CategoryDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/Category/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/Category/CategoryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/HotspotLocation/Hotspot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/HotspotLocation/Hotspot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/HotspotLocation/HotspotService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/HotspotLocation/HotspotService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/hotspots/Category/CategoryDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/hotspots/Category/CategoryDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/hotspots/Category/CategoryService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/hotspots/Category/CategoryService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/hotspots/HotspotLocation/Hotspot.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/hotspots/HotspotLocation/Hotspot.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/hotspots/HotspotLocation/HotspotService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/hotspots/HotspotLocation/HotspotService.class" afterDir="false" />
-    </list>
+    <list default="true" id="9dbe5efa-fbf6-4fc5-a9f6-4479a5840a02" name="Default Changelist" comment="Oauth2 created" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -267,6 +257,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.HotspotApplication" />
+        <item itemvalue="Application.HotspotApplication" />
+        <item itemvalue="Application.HotspotApplication" />
+        <item itemvalue="Application.HotspotApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -335,7 +328,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619011307375</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Oauth2 created">
+      <created>1619167966431</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1619167966431</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -388,7 +388,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -417,7 +429,15 @@
     <MESSAGE value="Created Blank Structure as reference purposes&#10;Made fixes to User Service - Can be improved" />
     <MESSAGE value="added basic location validation logic" />
     <MESSAGE value="created many to many relationship between category and locations" />
-    <option name="LAST_COMMIT_MESSAGE" value="created many to many relationship between category and locations" />
+    <MESSAGE value="Oauth2 created" />
+    <option name="LAST_COMMIT_MESSAGE" value="Oauth2 created" />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="org.springframework.security.core.context.SecurityContextImpl" memberName="authentication" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
