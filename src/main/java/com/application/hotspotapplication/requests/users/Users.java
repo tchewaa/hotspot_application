@@ -23,7 +23,7 @@ public class Users {
   @Column(name = "email")
   private String email;
 
-  @Column(name = "active")
+  @Column(name = "active", columnDefinition = "bit default 0")
   private Boolean active;
 
 }

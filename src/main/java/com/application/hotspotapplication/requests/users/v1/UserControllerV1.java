@@ -41,7 +41,7 @@ public class UserControllerV1 {
     }
   }
 
-  @PostMapping(path = "/{email}/activate", consumes = Constants.APPLICATION_JSON_VALUE, produces = Constants.APPLICATION_JSON_VALUE)
+  @PostMapping(path = "/{email}/activate")
   public ResponseEntity activateUser(@PathVariable(name = "email", required = true) String email) {
     try {
       usersService.activateUser(email);
@@ -51,7 +51,7 @@ public class UserControllerV1 {
     }
   }
 
-  @PostMapping(path = "/{email}/deactivate", consumes = Constants.APPLICATION_JSON_VALUE, produces = Constants.APPLICATION_JSON_VALUE)
+  @PostMapping(path = "/{email}/deactivate")
   public ResponseEntity deActivateUser(@PathVariable(name = "email", required = true) String email) {
     try {
       usersService.deActivateUser(email);
