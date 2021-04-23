@@ -1,5 +1,5 @@
 package com.application.hotspotapplication.requests.hotspots.HotspotLocation;
-
+import com.application.hotspotapplication.requests.users.*;
 import com.application.hotspotapplication.requests.hotspots.Category.Category;
 import com.application.hotspotapplication.requests.hotspots.Location.Location;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -30,6 +30,11 @@ public class Hotspot  {
   @MapsId("categoryId")
   @JoinColumn(name = "category_id")
   Category category;
+
+  @ManyToOne
+  @JoinColumn(name = "user_id")
+  Users users;
+
 
   @Column(name = "num_reports")
   private Integer numReports =0;

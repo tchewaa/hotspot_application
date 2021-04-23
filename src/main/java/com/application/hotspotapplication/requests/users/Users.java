@@ -1,8 +1,10 @@
 package com.application.hotspotapplication.requests.users;
 
+import com.application.hotspotapplication.requests.hotspots.HotspotLocation.Hotspot;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -26,4 +28,6 @@ public class Users {
   @Column(name = "active")
   private Boolean active;
 
+  @OneToMany(mappedBy = "users")
+  private List<Hotspot> hotspots;
 }

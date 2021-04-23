@@ -4,22 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9dbe5efa-fbf6-4fc5-a9f6-4479a5840a02" name="Default Changelist" comment="Added ability to search for hotspots in a particular region (region = province)">
+    <list default="true" id="9dbe5efa-fbf6-4fc5-a9f6-4479a5840a02" name="Default Changelist" comment="Refactored LocationService and added more hotspot endpoints">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/HotspotLocation/HotspotId.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/HotspotLocation/HotspotId.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hotspot-application.iml" beforeDir="false" afterPath="$PROJECT_DIR$/hotspot-application.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/Category/v1/CategoryControllerV1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/HotspotLocation/Hotspot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/HotspotLocation/Hotspot.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/HotspotLocation/HotspotService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/HotspotLocation/HotspotService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/HotspotLocation/v1/HotspotControllerV1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/HotspotLocation/v1/HotspotControllerV1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/Location/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/Location/Location.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/Location/LocationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/Location/LocationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/Location/v1/LocationControllerV1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/users/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/users/Users.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/utils/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/utils/Constants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/hotspots/Category/CategoryService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/hotspots/Category/CategoryService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/hotspots/HotspotLocation/HotspotDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/hotspots/HotspotLocation/HotspotDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/hotspots/HotspotLocation/HotspotId.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/hotspots/HotspotLocation/HotspotId.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/hotspots/Category/v1/CategoryControllerV1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/hotspots/HotspotLocation/Hotspot.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/hotspots/HotspotLocation/Hotspot.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/hotspots/HotspotLocation/HotspotService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/hotspots/HotspotLocation/HotspotService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/hotspots/HotspotLocation/v1/HotspotControllerV1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/hotspots/HotspotLocation/v1/HotspotControllerV1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/hotspots/Location/Location.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/hotspots/Location/Location.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/hotspots/Location/LocationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/hotspots/Location/LocationService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/hotspots/Location/v1/LocationControllerV1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/users/Users.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/users/Users.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/utils/Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/utils/Constants.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -230,8 +237,11 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -355,7 +365,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619094425941</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Refactored LocationService and added more hotspot endpoints">
+      <created>1619099061128</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1619099061128</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -439,7 +456,8 @@
     <MESSAGE value="created many to many relationship between category and locations" />
     <MESSAGE value="implemented saving logic for saving hotspots" />
     <MESSAGE value="Added ability to search for hotspots in a particular region (region = province)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added ability to search for hotspots in a particular region (region = province)" />
+    <MESSAGE value="Refactored LocationService and added more hotspot endpoints" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored LocationService and added more hotspot endpoints" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

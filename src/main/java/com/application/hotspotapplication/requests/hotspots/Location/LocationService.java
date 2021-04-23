@@ -1,18 +1,24 @@
 package com.application.hotspotapplication.requests.hotspots.Location;
 
 import com.application.hotspotapplication.utils.Constants;
+import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.TimeUnit;
 
+@Slf4j
 @Service
 public class LocationService {
   @Autowired
@@ -25,9 +31,10 @@ public class LocationService {
     this.restTemplate = restTemplateBuilder.build();
   }
 
-  public Location createHotspotReport(String streetAddress, String areaName, String cityName,int postalCode){
+  @SneakyThrows
+  public Location createHotspotLocation(String streetAddress, String areaName, String cityName, int postalCode){
     String addressQuery = streetAddress + ", " + areaName + ", " + cityName + ", " + postalCode;
-    Location curLocation = getHotspotLocation(addressQuery);
+    Location curLocation = getHotspotLocation(addressQuery).get(Constants.TIMEOUT_MILLISECONDS, TimeUnit.MILLISECONDS);
     if(!dao.findByLatitudeAndLongitude(curLocation.getLatitude(), curLocation.getLongitude()).isEmpty()){
       return dao.findByLatitudeAndLongitude(curLocation.getLatitude(), curLocation.getLongitude()).get(0);
     }
@@ -51,7 +58,9 @@ public class LocationService {
     return dao.findAll();
   }
 
-  private Location getHotspotLocation(String addressQuery){
+  @SneakyThrows
+  @Async
+  private CompletableFuture<Location> getHotspotLocation(String addressQuery){
     Location curLocation = null;
 
     String requestURL = Constants.POSSITIONSTACK_API_URL_FORWARD + positionStackApiKey + "&query=" + addressQuery + "&country=ZA";
@@ -60,7 +69,7 @@ public class LocationService {
     if(responseEntity.getStatusCode() == HttpStatus.OK) {
       curLocation = getConfidentLocation(responseEntity.getBody().getData());
     }
-    return curLocation;
+    return CompletableFuture.completedFuture(curLocation);
   }
 
   public Optional<Location> findLocationById(Long id){
@@ -70,9 +79,6 @@ public class LocationService {
 
   private Location getConfidentLocation(List<Location> locations){
     return locations.stream().max(Comparator.comparing(Location::getConfidence)).get();
-
   }
-
-
 
 }

@@ -6,7 +6,6 @@ import com.application.hotspotapplication.requests.hotspots.Location.Location;
 import com.application.hotspotapplication.requests.hotspots.Location.LocationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -24,7 +23,7 @@ public class HotspotService {
     private CategoryService categoryService;
 
     public Hotspot create(String address,String areaName, String cityName,int postalCode, String categoryName){
-        Location location = locationService.createHotspotReport(address, areaName, cityName, postalCode);
+        Location location = locationService.createHotspotLocation(address, areaName, cityName, postalCode);
         Category category = categoryService.create(categoryName);
         Hotspot newHotspot = new Hotspot(location, category);
 
@@ -75,6 +74,7 @@ public class HotspotService {
         locations.forEach(location -> hotspots.addAll(location.getHotspots()));
         return hotspots;
     }
+
     public List<Hotspot> getAll(){
         return dao.findAll();
     }

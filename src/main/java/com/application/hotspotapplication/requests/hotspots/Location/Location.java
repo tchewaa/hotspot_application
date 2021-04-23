@@ -4,7 +4,6 @@ import com.application.hotspotapplication.requests.hotspots.HotspotLocation.Hots
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -36,7 +35,6 @@ public class Location implements Serializable {
   private String city;
   @Column(name = "confidence")
   private Double confidence;
-
   @OneToMany(
           mappedBy = "location",
           cascade = CascadeType.ALL

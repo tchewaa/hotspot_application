@@ -1,4 +1,5 @@
 package com.application.hotspotapplication.requests.hotspots.HotspotLocation.v1;
+
 import com.application.hotspotapplication.requests.hotspots.HotspotLocation.Hotspot;
 import com.application.hotspotapplication.requests.hotspots.HotspotLocation.HotspotService;
 import lombok.extern.slf4j.Slf4j;
@@ -34,6 +35,7 @@ public class HotspotControllerV1 {
 
     @GetMapping("/region/{region}")
     public List<Hotspot> getHotspotsByRegion(@PathVariable(name = "region", required = true) String region){
+
         return hotspotService.getHotspotsByRegion(region);
     }
 
@@ -46,7 +48,6 @@ public class HotspotControllerV1 {
     public List<Hotspot> getHotspotsByStreetName(@PathVariable(name="streetName", required = true) String streetName){
         return hotspotService.getHotspotsByStreetName(streetName);
     }
-    //@todo have options that allow users to view their specific hotspot sightings and update/delete the ones theyve created.
 
 
 }
