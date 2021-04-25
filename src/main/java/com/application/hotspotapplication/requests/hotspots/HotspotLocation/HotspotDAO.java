@@ -8,4 +8,5 @@ import java.util.List;
 @Repository
 public interface HotspotDAO extends JpaRepository<Hotspot, HotspotId> {
     List<Hotspot> findAllByLocationId(Long locationId);
+
 }

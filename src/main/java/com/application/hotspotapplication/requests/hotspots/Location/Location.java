@@ -1,9 +1,12 @@
 package com.application.hotspotapplication.requests.hotspots.Location;
 
 import com.application.hotspotapplication.requests.hotspots.HotspotLocation.Hotspot;
+import com.application.hotspotapplication.requests.hotspots.UsersHotspots.UsersHotspots;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -14,6 +17,7 @@ import java.util.List;
 @Data
 @ToString
 @NoArgsConstructor
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Location implements Serializable {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,4 +45,9 @@ public class Location implements Serializable {
   )
   private List<Hotspot> hotspots = new ArrayList<>();
 
+  @OneToMany(
+          mappedBy = "location",
+          cascade = CascadeType.ALL
+  )
+  private List<UsersHotspots> usersHotspots = new ArrayList<>();
 }

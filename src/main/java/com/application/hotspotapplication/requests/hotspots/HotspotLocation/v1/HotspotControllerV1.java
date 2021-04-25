@@ -16,18 +16,6 @@ public class HotspotControllerV1 {
     @Autowired
     private HotspotService hotspotService;
 
-
-    @PutMapping("/create")
-    public Hotspot create(
-            @RequestParam String streetAddress,
-            @RequestParam String areaName,
-            @RequestParam String cityName,
-            @RequestParam String categoryName,
-            @RequestParam int postalCode
-    ){
-        return hotspotService.create(streetAddress, areaName, cityName,postalCode, categoryName);
-    }
-
     @GetMapping("/all")
     public List<Hotspot> getAll(){
         return hotspotService.getAll();
@@ -49,5 +37,8 @@ public class HotspotControllerV1 {
         return hotspotService.getHotspotsByStreetName(streetName);
     }
 
+    public Hotspot create(String streetAddress, String areaName, String cityName, String categoryName, int postalCode){
+        return hotspotService.create(streetAddress, areaName, cityName,postalCode, categoryName);
+    }
 
 }

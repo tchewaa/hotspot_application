@@ -1,5 +1,4 @@
 package com.application.hotspotapplication.requests.hotspots.HotspotLocation;
-import com.application.hotspotapplication.requests.users.*;
 import com.application.hotspotapplication.requests.hotspots.Category.Category;
 import com.application.hotspotapplication.requests.hotspots.Location.Location;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -17,24 +16,19 @@ import javax.persistence.*;
 public class Hotspot  {
 
   @EmbeddedId
-  HotspotId id;
+  private HotspotId id;
 
   @JsonIgnore
   @ManyToOne
   @MapsId("locationId")
   @JoinColumn(name = "location_id")
-  Location location;
+  private Location location;
 
   @JsonIgnore
   @ManyToOne
   @MapsId("categoryId")
   @JoinColumn(name = "category_id")
-  Category category;
-
-  @ManyToOne
-  @JoinColumn(name = "user_id")
-  Users users;
-
+  private Category category;
 
   @Column(name = "num_reports")
   private Integer numReports =0;
@@ -48,5 +42,7 @@ public class Hotspot  {
   public void addReport(){
     numReports++;
   }
+
+  public void deleteReport(){ numReports--; }
 
 }

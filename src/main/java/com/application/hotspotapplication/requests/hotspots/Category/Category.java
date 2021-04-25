@@ -1,6 +1,7 @@
 package com.application.hotspotapplication.requests.hotspots.Category;
 
 import com.application.hotspotapplication.requests.hotspots.HotspotLocation.Hotspot;
+import com.application.hotspotapplication.requests.hotspots.UsersHotspots.UsersHotspots;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -28,6 +29,12 @@ public class Category implements Serializable {
           cascade = CascadeType.ALL
   )
   private List<Hotspot> hotspots = new ArrayList<>();
+
+  @OneToMany(
+          mappedBy = "category",
+          cascade = CascadeType.ALL
+  )
+  private List<UsersHotspots> usersHotspots = new ArrayList<>();
 
   public Category(String name){
     this.name = name;

@@ -1,6 +1,7 @@
 package com.application.hotspotapplication.requests.hotspots.Location;
 
 import com.application.hotspotapplication.utils.Constants;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,9 @@ import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @Service
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class LocationService {
+
   @Autowired
   private LocationDAO dao;
   @Value("${api.key}")
@@ -35,9 +38,11 @@ public class LocationService {
   public Location createHotspotLocation(String streetAddress, String areaName, String cityName, int postalCode){
     String addressQuery = streetAddress + ", " + areaName + ", " + cityName + ", " + postalCode;
     Location curLocation = getHotspotLocation(addressQuery).get(Constants.TIMEOUT_MILLISECONDS, TimeUnit.MILLISECONDS);
-    if(!dao.findByLatitudeAndLongitude(curLocation.getLatitude(), curLocation.getLongitude()).isEmpty()){
-      return dao.findByLatitudeAndLongitude(curLocation.getLatitude(), curLocation.getLongitude()).get(0);
+
+    if(locationExists(curLocation.getLatitude(), curLocation.getLongitude())){
+      return dao.findByLatitudeAndLongitude(curLocation.getLatitude(), curLocation.getLongitude()).get();
     }
+
     if(curLocation.getConfidence() >= 0.5){ //@TODO find a better more accurate way of determining if location is correct.
       curLocation.setStreetAddress(streetAddress);
       curLocation.setCity(cityName);
@@ -46,6 +51,9 @@ public class LocationService {
       dao.save(curLocation);
     }
     return curLocation;
+  }
+  public boolean locationExists(Double latitude, Double longitude){
+    return dao.findByLatitudeAndLongitude(latitude, longitude).isPresent();
   }
 
   public List<Location> getHotspotLocationByNeighbourhood(String neighbourhood) {return dao.findByNeighbourhood(neighbourhood);}

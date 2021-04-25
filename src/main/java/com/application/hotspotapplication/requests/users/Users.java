@@ -1,9 +1,10 @@
 package com.application.hotspotapplication.requests.users;
 
-import com.application.hotspotapplication.requests.hotspots.HotspotLocation.Hotspot;
+import com.application.hotspotapplication.requests.hotspots.UsersHotspots.UsersHotspots;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -13,7 +14,7 @@ public class Users {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name = "id")
+  @Column(name = "user_id")
   private Long id;
 
   @Column(name = "first_name")
@@ -28,6 +29,6 @@ public class Users {
   @Column(name = "active")
   private Boolean active;
 
-  @OneToMany(mappedBy = "users")
-  private List<Hotspot> hotspots;
+  @OneToMany(mappedBy = "user")
+  private List<UsersHotspots> usersHotspots = new ArrayList<>();
 }
