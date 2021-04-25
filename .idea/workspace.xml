@@ -4,60 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9dbe5efa-fbf6-4fc5-a9f6-4479a5840a02" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_stephenc_jcip_jcip_annotations_1_0_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_nimbusds_content_type_2_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_nimbusds_lang_tag_1_4_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_nimbusds_nimbus_jose_jwt_8_20_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_nimbusds_oauth2_oidc_sdk_8_36_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_mail_jakarta_mail_1_6_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_13_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_2_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_oauth2_client_2_4_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_config_5_4_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_core_5_4_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_oauth2_client_5_4_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_oauth2_core_5_4_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_oauth2_jose_5_4_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_test_5_4_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_web_5_4_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2021_04_20_14_39__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2021_04_20_14_39__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2021_04_20_14_40__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2021_04_20_14_40__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2021_04_21_07_33__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2021_04_21_07_33__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2021_04_21_07_33__Default_Changelist_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2021_04_21_07_33__Default_Changelist_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021_04_21_07_39__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021_04_21_07_39__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hotspot-application.iml" beforeDir="false" afterPath="$PROJECT_DIR$/hotspot-application.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/HotspotApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/HotspotApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/Oauth2ClientSecurityConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/Category/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/Category/Category.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/HotspotLocation/Hotspot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/HotspotLocation/Hotspot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/HotspotLocation/HotspotDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/HotspotLocation/HotspotDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/HotspotLocation/HotspotService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/HotspotLocation/HotspotService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/HotspotLocation/v1/HotspotControllerV1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/HotspotLocation/v1/HotspotControllerV1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/Location/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/Location/Location.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/Location/LocationDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/Location/LocationDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/Location/LocationData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/Location/LocationData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/Location/LocationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/Location/LocationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/users/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/users/Users.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/users/v1/UserControllerV1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/users/v1/UserControllerV1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/hotspot-app-firebase-credentials.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/hotspot-app-firebase-credentials.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/HotspotApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/HotspotApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/Oauth2ClientSecurityConfig$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/Oauth2ClientSecurityConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/hotspots/Category/Category.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/hotspots/Category/Category.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/hotspots/HotspotLocation/Hotspot.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/hotspots/HotspotLocation/Hotspot.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/hotspots/HotspotLocation/HotspotService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/hotspots/HotspotLocation/HotspotService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/hotspots/HotspotLocation/v1/HotspotControllerV1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/hotspots/HotspotLocation/v1/HotspotControllerV1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/hotspots/Location/Location.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/hotspots/Location/Location.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/users/Users.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/users/Users.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/users/v1/UserControllerV1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/users/v1/UserControllerV1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/hotspot-app-firebase-credentials.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/hotspot-app-firebase-credentials.json" afterDir="false" />
-    </list>
+    <list default="true" id="9dbe5efa-fbf6-4fc5-a9f6-4479a5840a02" name="Default Changelist" comment="Added UsersHotspots package to track which users have logged which hotspots. Users can create hotspots, delete hotspots they have created and can read their created hotspots" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -402,7 +349,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619099061128</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Added UsersHotspots package to track which users have logged which hotspots. Users can create hotspots, delete hotspots they have created and can read their created hotspots">
+      <created>1619344283751</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1619344283755</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -487,7 +441,8 @@
     <MESSAGE value="implemented saving logic for saving hotspots" />
     <MESSAGE value="Added ability to search for hotspots in a particular region (region = province)" />
     <MESSAGE value="Refactored LocationService and added more hotspot endpoints" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored LocationService and added more hotspot endpoints" />
+    <MESSAGE value="Added UsersHotspots package to track which users have logged which hotspots. Users can create hotspots, delete hotspots they have created and can read their created hotspots" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added UsersHotspots package to track which users have logged which hotspots. Users can create hotspots, delete hotspots they have created and can read their created hotspots" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
