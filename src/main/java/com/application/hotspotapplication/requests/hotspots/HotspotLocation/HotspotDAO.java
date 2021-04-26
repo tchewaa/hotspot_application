@@ -22,4 +22,5 @@ public interface HotspotDAO extends JpaRepository<Hotspot, HotspotId> {
     @Modifying
     @Query("UPDATE hotspot SET numReports = (numReports -1) WHERE location = :location AND category = :category")
     void decrementHotspotReport(@Param("location") Long location, @Param("category") Long categoryId);
+
 }

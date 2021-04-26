@@ -22,20 +22,26 @@ public class HotspotControllerV1 {
     }
 
     @GetMapping("/region/{region}")
-    public List<Hotspot> getHotspotsByRegion(@PathVariable(name = "region", required = true) String region){
+    public List<Hotspot> getHotspotsByRegion(@PathVariable(name = "region") String region){
 
         return hotspotService.getHotspotsByRegion(region);
     }
 
     @GetMapping("/neighbourhood/{neighbourhood}")
-    public List<Hotspot> getHotspotsByNeighbourhood(@PathVariable(name = "neighbourhood", required = true) String neighbourhood){
+    public List<Hotspot> getHotspotsByNeighbourhood(@PathVariable(name = "neighbourhood") String neighbourhood){
         return hotspotService.getHotspotByNeighbourhood(neighbourhood);
     }
 
-    @GetMapping("streetName/{streetName}")
-    public List<Hotspot> getHotspotsByStreetName(@PathVariable(name="streetName", required = true) String streetName){
-        return hotspotService.getHotspotsByStreetName(streetName);
+    @GetMapping("streetAddress/{streetAddress}")
+    public List<Hotspot> getHotspotsByStreetName(@PathVariable(name="streetAddress") String streetAddress){
+        return hotspotService.getHotspotsByStreetAddress(streetAddress);
     }
+
+    @GetMapping("/neighbourhood/{neighbourhood}/region/{region}")
+    public List<Hotspot> getHotspotsByNeighbourhoodAndRegion(@PathVariable(name = "neighbourhood") String neighbourhood, @PathVariable(name = "region") String region){
+        return hotspotService.getHotspotByNeighbourhoodAndRegion(neighbourhood, region);
+    }
+
 
 
 }

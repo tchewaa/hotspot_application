@@ -40,6 +40,4 @@ public class Hotspot  {
     numReports++;
   }
 
-  public void deleteReport(){ numReports--; }
-
 }

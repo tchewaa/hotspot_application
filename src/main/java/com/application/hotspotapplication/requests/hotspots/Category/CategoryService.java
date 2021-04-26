@@ -3,9 +3,6 @@ package com.application.hotspotapplication.requests.hotspots.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
-
 @Service
 public class CategoryService {
 
@@ -14,19 +11,18 @@ public class CategoryService {
 
   public Category create(String categoryName){
     Category category = new Category(categoryName);
-    List<Category> existingCategories = dao.findByName(categoryName);
 
-    if(!existingCategories.isEmpty()){
-      return existingCategories.get(0);
+    if(isExistingCategory(categoryName)){
+      return dao.findByName(categoryName).get();
     }
-
     dao.save(category);
     return category;
   }
 
-  public Optional<Category> findCategoryById(Long id){
-    return dao.findById(id);
+  private boolean isExistingCategory(String categoryName){
+    return dao.findByName(categoryName).isPresent();
   }
+
 
 
 

@@ -39,20 +39,19 @@ public class LocationService {
   public Location createHotspotLocation(String streetAddress, String areaName, String cityName, int postalCode){
     String addressQuery = streetAddress + ", " + areaName + ", " + cityName + ", " + postalCode;
     try {
-      Location curLocation = getHotspotLocation(addressQuery).get(Constants.TIMEOUT_MILLISECONDS, TimeUnit.MILLISECONDS);
+      Location curLocation = fetchLocationFromApi(addressQuery).get(Constants.TIMEOUT_MILLISECONDS, TimeUnit.MILLISECONDS);
 
       if (locationExists(curLocation.getLatitude(), curLocation.getLongitude())) {
         return dao.findByLatitudeAndLongitude(curLocation.getLatitude(), curLocation.getLongitude()).get();
       }
 
-      if (curLocation.getConfidence() >= 0.5) { //@TODO find a better more accurate way of determining if location is correct.
-        curLocation.setStreetAddress(streetAddress);
-        curLocation.setCity(cityName);
-        curLocation.setNeighbourhood(areaName);
-        curLocation.setPostalCode(postalCode);
+      if (curLocation.getConfidence() >= 0.5) {
+        curLocation.setLocationData(streetAddress, cityName, areaName, postalCode);
         dao.save(curLocation);
+        return curLocation;
       }
-      return curLocation;
+
+      throw new ApiRequestException("Could not find specified location", HttpStatus.BAD_REQUEST);
     }catch (Exception e){
       throw new ApiRequestException("Could not add specified location", HttpStatus.BAD_REQUEST);
     }
@@ -61,19 +60,48 @@ public class LocationService {
     return dao.findByLatitudeAndLongitude(latitude, longitude).isPresent();
   }
 
-  public List<Location> getHotspotLocationByNeighbourhood(String neighbourhood) {return dao.findByNeighbourhood(neighbourhood);}
-
-  public List<Location> getHotspotLocationsByRegion(String region){
-    return dao.findByRegion(region);
+  @SneakyThrows
+  public List<Location> getLocationsByStreetName(String streetAddress){
+    List<Location> locations = dao.findByStreetAddressContaining(streetAddress);
+    return sendLocations(locations,"Could not find locations with street address " + streetAddress);
   }
 
-  public List<Location> getAllHotspotLocations(){
-    return dao.findAll();
+
+  @SneakyThrows
+  public List<Location> getLocationsByNeighbourhood(String neighbourhood) {
+    List<Location> locations = dao.findByNeighbourhood(neighbourhood);
+    return sendLocations(locations, "Could not find locations at " + neighbourhood);
+  }
+
+  @SneakyThrows
+  public List<Location> getLocationsByRegion(String region) {
+    List<Location> locations = dao.findByRegion(region);
+    return sendLocations(locations, "Could not find locations in region " + region);
+  }
+
+  @SneakyThrows
+  public List<Location> getLocations() {
+    List<Location> locations = dao.findAll();
+    return sendLocations(locations, "No locations currently");
+  }
+
+  @SneakyThrows
+  public List<Location> getLocationsByNeighbourhoodAndRegion(String neighbourhood, String region) {
+    List<Location> locations = dao.findByNeighbourhoodAndRegion(neighbourhood, region);
+    return sendLocations(locations, "Could not find any locations at " + neighbourhood + " in " + region);
+  }
+
+  @SneakyThrows
+  private List<Location> sendLocations(List<Location> locations, String apiExceptionMessage){
+    if(!locations.isEmpty()){
+      return locations;
+    }
+    throw new ApiRequestException(apiExceptionMessage, HttpStatus.BAD_REQUEST);
   }
 
   @SneakyThrows
   @Async
-  private CompletableFuture<Location> getHotspotLocation(String addressQuery){
+  private CompletableFuture<Location> fetchLocationFromApi(String addressQuery){
     String requestURL = Constants.POSSITIONSTACK_API_URL_FORWARD + positionStackApiKey + "&query=" + addressQuery + "&country=ZA";
     ResponseEntity<LocationData> responseEntity =  restTemplate.getForEntity(requestURL, LocationData.class);
 

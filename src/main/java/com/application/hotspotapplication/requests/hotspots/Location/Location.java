@@ -52,4 +52,11 @@ public class Location implements Serializable {
           cascade = CascadeType.ALL
   )
   private List<UsersHotspots> usersHotspots = new ArrayList<>();
+
+  public void setLocationData(String streetAddress, String city, String neighbourhood, Integer postalCode){
+    this.streetAddress = streetAddress;
+    this.city = city;
+    this.neighbourhood = neighbourhood;
+    this.postalCode = postalCode;
+  }
 }

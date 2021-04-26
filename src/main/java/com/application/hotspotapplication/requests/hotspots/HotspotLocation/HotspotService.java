@@ -11,11 +11,9 @@ import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -69,54 +67,39 @@ public class HotspotService {
         dao.incrementHotspotReport(locationId, categoryId);
     }
     @SneakyThrows
-    public List<Hotspot> getHotspotsByStreetName(String streetName){
+    public List<Hotspot> getHotspotsByStreetAddress(String streetAddress){
         List<Hotspot> hotspots = new ArrayList<>();
-        List<Location> locations =
-                locationService.
-                        getAllHotspotLocations().
-                        stream().
-                        filter(location -> location.getStreetAddress().matches(".*" + streetName +".*")). //Tries to get a street name that matches the name that was passed in
-                        collect(Collectors.toList());
-
-        if(!locations.isEmpty()) {
-            locations.forEach(location -> hotspots.addAll(location.getHotspots()));
-            return hotspots;
-        }
-
-        throw new ApiRequestException("No Hotspots with street name " + streetName + " exists", HttpStatus.BAD_REQUEST);
+        List<Location> locations = locationService.getLocationsByStreetName(streetAddress);
+        locations.forEach(location -> hotspots.addAll(location.getHotspots()));
+        return hotspots;
     }
     @SneakyThrows
     public List<Hotspot> getHotspotsByRegion(String region){
-        List<Location> regionLocations =  locationService.getHotspotLocationsByRegion(region);
-
-        if(!regionLocations.isEmpty()) {
-            List<Hotspot> hotspots = new ArrayList<>();
-            regionLocations.forEach(location -> hotspots.addAll(location.getHotspots()));
-            return hotspots;
-        }
-
-        throw new ApiRequestException("No Hotspots in region " + region + " exists", HttpStatus.BAD_REQUEST);
+        List<Location> regionLocations =  locationService.getLocationsByRegion(region);
+        List<Hotspot> hotspots = new ArrayList<>();
+        regionLocations.forEach(location -> hotspots.addAll(location.getHotspots()));
+        return hotspots;
     }
     @SneakyThrows
     public List<Hotspot> getHotspotByNeighbourhood(String neighbourhood){
-        List<Location> locations = locationService.getHotspotLocationByNeighbourhood(neighbourhood);
-
-        if(!locations.isEmpty()) {
-            List<Hotspot> hotspots = new ArrayList<>();
-            locations.forEach(location -> hotspots.addAll(location.getHotspots()));
-            return hotspots;
-        }
-
-        throw new ApiRequestException("No hotspots in neighbourhood " + neighbourhood + " exists", HttpStatus.BAD_REQUEST);
+        List<Location> locations = locationService.getLocationsByNeighbourhood(neighbourhood);
+        List<Hotspot> hotspots = new ArrayList<>();
+        locations.forEach(location -> hotspots.addAll(location.getHotspots()));
+        return hotspots;
+    }
+    @SneakyThrows
+    public List<Hotspot> getHotspotByNeighbourhoodAndRegion(String neighbourhood, String region){
+        List<Location> locations = locationService.getLocationsByNeighbourhoodAndRegion(neighbourhood, region);
+        List<Hotspot> hotspots = new ArrayList<>();
+        locations.forEach(location -> hotspots.addAll(dao.findAllByLocationId(location.getId())));
+        return hotspots;
     }
     @SneakyThrows
     public List<Hotspot> getAll(){
         List<Hotspot> allHotspots = dao.findAll();
-
         if(!allHotspots.isEmpty()){
             return allHotspots;
         }
-
         throw new ApiRequestException("No hotspots reported", HttpStatus.BAD_REQUEST);
     }
 

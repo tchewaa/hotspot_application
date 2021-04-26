@@ -31,6 +31,7 @@ public class Category implements Serializable {
           cascade = CascadeType.ALL
   )
   private List<Hotspot> hotspots = new ArrayList<>();
+
   @JsonIgnore
   @OneToMany(
           mappedBy = "category",
