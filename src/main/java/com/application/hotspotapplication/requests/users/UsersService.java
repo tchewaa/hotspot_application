@@ -1,11 +1,14 @@
 package com.application.hotspotapplication.requests.users;
 
 import com.application.hotspotapplication.exceptions.ApiRequestException;
-import java.util.List;
 import lombok.SneakyThrows;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class UsersService {
@@ -30,12 +33,19 @@ public class UsersService {
     if (exsitingUser == null) create(users);
     else throw new ApiRequestException("Duplicate User!", HttpStatus.BAD_REQUEST);
   }
-
+  @SneakyThrows
+  public Users verifyUser(Users users) {
+    Users exsitingUser = dao.findUserByEmail(users.getEmail());
+    if (exsitingUser == null) create(users);
+    return exsitingUser;
+  }
   @SneakyThrows
   public void updateUser(Users users) {
     Users exsitingUser = findUserById(users.getId());
     if (exsitingUser != null) update(users);
   }
+
+
 
   @SneakyThrows
   public void activateUser(String email) {
@@ -62,7 +72,35 @@ public class UsersService {
     }
     return user;
   }
+  @SneakyThrows
+  public Users generateUser()
+  {
+    String userDetails = (SecurityContextHolder.getContext().getAuthentication().getPrincipal()).toString();
+    if(userDetails != null) {
+      Users loggedInUser = new Users();
+      JSONObject jsonObject = new JSONObject(userDetails);
+      loggedInUser.setEmail(jsonObject.getString("email").toString());
+      loggedInUser.setFirstName(((jsonObject.getString("name")).toString()).split(" ", 2)[0]);
+      loggedInUser.setLastName(((jsonObject.getString("name")).toString()).split(" ", 2)[1]);
+      loggedInUser.setActive(Boolean.TRUE);
+      return loggedInUser;
+    }
+    else{
+      throw new ApiRequestException("Google did not return the authenticated user details", HttpStatus.NOT_FOUND);
+    }
+  }
+  @SneakyThrows
+  public Long getLoggedInUserId()
+  {
+    Users user = generateUser();
+    if(user != null) {
 
+      return user.getId();
+    }
+    else{
+      throw new ApiRequestException("Google did not return the authenticated user details", HttpStatus.NOT_FOUND);
+    }
+  }
   @SneakyThrows
   public Users findUserByEmail(String email) {
     Users user =  dao.findUserByEmail(email);
