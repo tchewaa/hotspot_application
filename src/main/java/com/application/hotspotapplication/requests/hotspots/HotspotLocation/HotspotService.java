@@ -95,6 +95,11 @@ public class HotspotService {
         return hotspots;
     }
     @SneakyThrows
+    public List<Hotspot> getHotspotsByCategory(String categoryName){
+        Long categoryId = categoryService.getCategoryIdByName(categoryName);
+        return dao.findAllByCategoryId(categoryId);
+    }
+    @SneakyThrows
     public List<Hotspot> getAll(){
         List<Hotspot> allHotspots = dao.findAll();
         if(!allHotspots.isEmpty()){
@@ -102,5 +107,7 @@ public class HotspotService {
         }
         throw new ApiRequestException("No hotspots reported", HttpStatus.BAD_REQUEST);
     }
+
+
 
 }

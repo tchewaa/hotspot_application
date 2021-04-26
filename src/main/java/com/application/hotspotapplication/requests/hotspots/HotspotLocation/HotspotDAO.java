@@ -13,6 +13,8 @@ import java.util.List;
 public interface HotspotDAO extends JpaRepository<Hotspot, HotspotId> {
     List<Hotspot> findAllByLocationId(Long locationId);
 
+    List<Hotspot> findAllByCategoryId(Long CategoryId);
+
     @Transactional
     @Modifying
     @Query("UPDATE hotspot SET numReports = (numReports + 1) WHERE location = :location AND category = :category")

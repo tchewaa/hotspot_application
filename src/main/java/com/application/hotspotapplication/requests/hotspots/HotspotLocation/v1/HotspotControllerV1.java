@@ -4,7 +4,10 @@ import com.application.hotspotapplication.requests.hotspots.HotspotLocation.Hots
 import com.application.hotspotapplication.requests.hotspots.HotspotLocation.HotspotService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -42,6 +45,8 @@ public class HotspotControllerV1 {
         return hotspotService.getHotspotByNeighbourhoodAndRegion(neighbourhood, region);
     }
 
-
-
+    @GetMapping("/category/{category}")
+    public List<Hotspot> getHotspotsByCategory(@PathVariable(name = "category") String categoryName){
+        return hotspotService.getHotspotsByCategory(categoryName);
+    }
 }
