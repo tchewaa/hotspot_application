@@ -18,11 +18,11 @@
 
     Scenario Outline: client request for specific USERS by an ID
       When The client sends a request for a specific user by id "<id>"
-      Then Assert that there is a result
+      And I assert the email is "<email>"
 
       Examples:
-        | id |
-        | 1  |
-        | 2  |
-        | 3  |
-        | 4  |
+        | id | email            |
+        | 1  | wrongemail@a.com |
+        | 2  | user@2.com       |
+        | 3  | user@3.com       |
+        | 4  | user@4.com       |
