@@ -1,7 +1,6 @@
 package com.application.hotspotapplication.requests.hotspots.HotspotLocation;
 import com.application.hotspotapplication.requests.hotspots.Category.Category;
 import com.application.hotspotapplication.requests.hotspots.Location.Location;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,13 +17,11 @@ public class Hotspot  {
   @EmbeddedId
   private HotspotId id;
 
-  @JsonIgnore
   @ManyToOne
   @MapsId("locationId")
   @JoinColumn(name = "location_id")
   private Location location;
 
-  @JsonIgnore
   @ManyToOne
   @MapsId("categoryId")
   @JoinColumn(name = "category_id")

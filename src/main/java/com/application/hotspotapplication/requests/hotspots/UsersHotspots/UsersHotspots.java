@@ -20,13 +20,11 @@ public class UsersHotspots {
     @EmbeddedId
     private UsersHotspotsId id;
 
-    @JsonIgnore
     @ManyToOne
     @MapsId("locationId")
     @JoinColumn(name = "location_id")
     private Location location;
 
-    @JsonIgnore
     @ManyToOne
     @MapsId("categoryId")
     @JoinColumn(name = "category_id")

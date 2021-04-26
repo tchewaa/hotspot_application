@@ -2,6 +2,7 @@ package com.application.hotspotapplication.requests.hotspots.Location;
 
 import com.application.hotspotapplication.requests.hotspots.HotspotLocation.Hotspot;
 import com.application.hotspotapplication.requests.hotspots.UsersHotspots.UsersHotspots;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -39,12 +40,13 @@ public class Location implements Serializable {
   private String city;
   @Column(name = "confidence")
   private Double confidence;
+  @JsonIgnore
   @OneToMany(
           mappedBy = "location",
           cascade = CascadeType.ALL
   )
   private List<Hotspot> hotspots = new ArrayList<>();
-
+  @JsonIgnore
   @OneToMany(
           mappedBy = "location",
           cascade = CascadeType.ALL

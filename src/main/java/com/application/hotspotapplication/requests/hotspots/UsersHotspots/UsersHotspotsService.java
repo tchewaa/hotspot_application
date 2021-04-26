@@ -46,27 +46,32 @@ public class UsersHotspotsService {
         throw new ApiRequestException("Cannot add duplicate hotspots for this user", HttpStatus.BAD_REQUEST);
     }
 
-    public boolean userHotspotAlreadyExists(Long locationId, Long categoryId, Long userId){
+    private boolean userHotspotAlreadyExists(Long locationId, Long categoryId, Long userId){
         return dao.findByLocationIdAndCategoryIdAndUserId(locationId, categoryId, userId).isPresent();
     }
 
+    @SneakyThrows
     public List<UsersHotspots> getUserHotspots(){
-        return getLoggedUser().getUsersHotspots();
+        List<UsersHotspots> usersHotspots = getLoggedUser().getUsersHotspots();
+        if(!usersHotspots.isEmpty()){
+            return  usersHotspots;
+        }
+        throw new ApiRequestException("User has created no hotspots", HttpStatus.OK);
     }
 
+    @SneakyThrows
     public Optional<UsersHotspots> deleteUserHotspots(Long locationId, Long categoryId){
         Optional<UsersHotspots> optionalUsersHotspotsToDelete = dao.findByLocationIdAndCategoryIdAndUserId(locationId, categoryId, getLoggedUser().getId());
 
         if(optionalUsersHotspotsToDelete.isPresent()) {
             hotspotService.deleteHotspotEntry(locationId, categoryId);
             dao.delete(optionalUsersHotspotsToDelete.get());
+            return optionalUsersHotspotsToDelete;
         }
-
-        return optionalUsersHotspotsToDelete;
+        throw new ApiRequestException("Hotspot does not exist", HttpStatus.BAD_REQUEST);
     }
 
-
-    public Users getLoggedUser() {
+    private Users getLoggedUser() {
         return usersService.findUserByEmail(email);
     }
 

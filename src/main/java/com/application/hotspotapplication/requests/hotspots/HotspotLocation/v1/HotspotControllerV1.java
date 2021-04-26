@@ -37,8 +37,5 @@ public class HotspotControllerV1 {
         return hotspotService.getHotspotsByStreetName(streetName);
     }
 
-    public Hotspot create(String streetAddress, String areaName, String cityName, String categoryName, int postalCode){
-        return hotspotService.create(streetAddress, areaName, cityName,postalCode, categoryName);
-    }
 
 }

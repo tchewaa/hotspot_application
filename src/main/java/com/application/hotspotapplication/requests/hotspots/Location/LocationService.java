@@ -1,5 +1,6 @@
 package com.application.hotspotapplication.requests.hotspots.Location;
 
+import com.application.hotspotapplication.exceptions.ApiRequestException;
 import com.application.hotspotapplication.utils.Constants;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.SneakyThrows;
@@ -37,20 +38,24 @@ public class LocationService {
   @SneakyThrows
   public Location createHotspotLocation(String streetAddress, String areaName, String cityName, int postalCode){
     String addressQuery = streetAddress + ", " + areaName + ", " + cityName + ", " + postalCode;
-    Location curLocation = getHotspotLocation(addressQuery).get(Constants.TIMEOUT_MILLISECONDS, TimeUnit.MILLISECONDS);
+    try {
+      Location curLocation = getHotspotLocation(addressQuery).get(Constants.TIMEOUT_MILLISECONDS, TimeUnit.MILLISECONDS);
 
-    if(locationExists(curLocation.getLatitude(), curLocation.getLongitude())){
-      return dao.findByLatitudeAndLongitude(curLocation.getLatitude(), curLocation.getLongitude()).get();
-    }
+      if (locationExists(curLocation.getLatitude(), curLocation.getLongitude())) {
+        return dao.findByLatitudeAndLongitude(curLocation.getLatitude(), curLocation.getLongitude()).get();
+      }
 
-    if(curLocation.getConfidence() >= 0.5){ //@TODO find a better more accurate way of determining if location is correct.
-      curLocation.setStreetAddress(streetAddress);
-      curLocation.setCity(cityName);
-      curLocation.setNeighbourhood(areaName);
-      curLocation.setPostalCode(postalCode);
-      dao.save(curLocation);
+      if (curLocation.getConfidence() >= 0.5) { //@TODO find a better more accurate way of determining if location is correct.
+        curLocation.setStreetAddress(streetAddress);
+        curLocation.setCity(cityName);
+        curLocation.setNeighbourhood(areaName);
+        curLocation.setPostalCode(postalCode);
+        dao.save(curLocation);
+      }
+      return curLocation;
+    }catch (Exception e){
+      throw new ApiRequestException("Could not add specified location", HttpStatus.BAD_REQUEST);
     }
-    return curLocation;
   }
   public boolean locationExists(Double latitude, Double longitude){
     return dao.findByLatitudeAndLongitude(latitude, longitude).isPresent();
@@ -69,15 +74,14 @@ public class LocationService {
   @SneakyThrows
   @Async
   private CompletableFuture<Location> getHotspotLocation(String addressQuery){
-    Location curLocation = null;
-
     String requestURL = Constants.POSSITIONSTACK_API_URL_FORWARD + positionStackApiKey + "&query=" + addressQuery + "&country=ZA";
     ResponseEntity<LocationData> responseEntity =  restTemplate.getForEntity(requestURL, LocationData.class);
 
     if(responseEntity.getStatusCode() == HttpStatus.OK) {
-      curLocation = getConfidentLocation(responseEntity.getBody().getData());
+      Location curLocation = getConfidentLocation(responseEntity.getBody().getData());
+      return CompletableFuture.completedFuture(curLocation);
     }
-    return CompletableFuture.completedFuture(curLocation);
+    throw new ApiRequestException("Cannot find location", HttpStatus.BAD_REQUEST);
   }
 
   public Optional<Location> findLocationById(Long id){
