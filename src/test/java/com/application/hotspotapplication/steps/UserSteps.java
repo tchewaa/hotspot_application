@@ -1,17 +1,22 @@
 package com.application.hotspotapplication.steps;
 
 import com.application.hotspotapplication.configs.SpringIntergrationTests;
+import com.application.hotspotapplication.requests.users.Users;
 import com.application.hotspotapplication.requests.users.UsersService;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import javax.inject.Inject;
+import lombok.Data;
 import org.junit.Assert;
 
+@Data
 public class UserSteps extends SpringIntergrationTests {
 
   @Inject
   private UsersService usersService;
   private String result;
+  private Users user;
 
   @When("^The client sends a request for all users$")
   public void allUsers() throws Throwable {
@@ -30,7 +35,12 @@ public class UserSteps extends SpringIntergrationTests {
 
   @When("^The client sends a request for a specific user by id \"(.*)\"$")
   public void findUserByID(Long id) throws Throwable {
-    result =  usersService.findUserById(id).toString();
+    user =  usersService.findUserById(id);
+  }
+
+  @And("^I assert the email is \"(.*)\"$")
+  public void verifyCorrectEmail(String email) throws Throwable {
+    Assert.assertTrue(email.equalsIgnoreCase(user.getEmail()));
   }
 
 

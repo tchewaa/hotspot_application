@@ -7,10 +7,8 @@ import com.application.hotspotapplication.requests.users.UsersService;
 import com.application.hotspotapplication.utils.Constants;
 import java.util.List;
 import javax.inject.Inject;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -62,7 +60,7 @@ public class UserControllerV1 {
     }
   }
 
-  @PostMapping(path = "/{email}/deactivate", consumes = Constants.APPLICATION_JSON_VALUE, produces = Constants.APPLICATION_JSON_VALUE)
+  @PostMapping(path = "/{email}/deactivate")
   public ResponseEntity deActivateUser(@PathVariable(name = "email", required = true) String email) {
     try {
       usersService.deActivateUser(email);
