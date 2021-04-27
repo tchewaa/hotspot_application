@@ -44,9 +44,6 @@ public class UsersService {
     Users exsitingUser = findUserById(users.getId());
     if (exsitingUser != null) update(users);
   }
-
-
-
   @SneakyThrows
   public void activateUser(String email) {
     Users exsitingUser = findUserByEmail(email);
@@ -94,7 +91,7 @@ public class UsersService {
   {
     Users user = generateUser();
     if(user != null) {
-
+      user = findUserByEmail(user.getEmail());
       return user.getId();
     }
     else{

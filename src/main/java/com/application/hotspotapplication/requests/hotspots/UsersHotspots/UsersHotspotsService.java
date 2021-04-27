@@ -13,6 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -20,8 +21,6 @@ import java.util.Optional;
 @Slf4j
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UsersHotspotsService {
-    String email = "user@2.com"; //@TODO DELETE  -> just for testing purposes while OAuth gets sorted
-
     @Autowired
     private UsersHotspotsDAO dao;
     @Autowired
@@ -72,7 +71,8 @@ public class UsersHotspotsService {
     }
 
     private Users getLoggedUser() {
-        return usersService.findUserByEmail(email);
+        Long id = usersService.getLoggedInUserId();
+        return usersService.findUserById(id);
     }
 
 

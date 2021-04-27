@@ -3,6 +3,7 @@ package com.application.hotspotapplication;
 import com.application.hotspotapplication.exceptions.ApiRequestException;
 import com.application.hotspotapplication.utils.Constants;
 import lombok.SneakyThrows;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -73,8 +74,9 @@ public class AccessTokenFilter extends OncePerRequestFilter {
 
                 System.out.println("GET Response Code :: " + responseCode);
                 System.out.println(response.toString());
+                return response.toString();
             }
-            return response.toString();
+            throw new ApiRequestException("Autherization issue occured", HttpStatus.UNAUTHORIZED);
         }
         catch (ApiRequestException e) {
             throw new ApiRequestException(e.getMessage(), e, e.getHttpStatus());
