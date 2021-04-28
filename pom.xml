@@ -117,8 +117,12 @@
       <artifactId>hibernate-core</artifactId>
       <version>${hibernate.version}</version>
     </dependency>
-
-
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-junit</artifactId>
+      <version>6.10.3</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 
   <build>

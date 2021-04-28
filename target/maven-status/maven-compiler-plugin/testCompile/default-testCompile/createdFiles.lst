@@ -1,0 +1,5 @@
+com\application\hotspotapplication\UserUnitTests.class
+com\application\hotspotapplication\HotspotApplicationTests.class
+com\application\hotspotapplication\configs\SpringIntergrationTests.class
+com\application\hotspotapplication\CucmberTests.class
+com\application\hotspotapplication\steps\UserSteps.class

@@ -4,35 +4,49 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9dbe5efa-fbf6-4fc5-a9f6-4479a5840a02" name="Default Changelist" comment="Refactored services and added ability to search for hotspots via category">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2021_04_20_14_39__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2021_04_20_14_39__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2021_04_20_14_40_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2021_04_20_14_40__Default_Changelist_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2021_04_21_07_33__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2021_04_21_07_33__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2021_04_21_07_33__Default_Changelist_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2021_04_21_07_33__Default_Changelist_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2021_04_23_11_23__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2021_04_23_11_23__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021_04_21_07_39__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021_04_21_07_39__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Default_Changelist_.xml" afterDir="false" />
+    <list default="true" id="9dbe5efa-fbf6-4fc5-a9f6-4479a5840a02" name="Default Changelist" comment="Integrated OAuth into required hotspots endpoints">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_stephenc_jcip_jcip_annotations_1_0_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_nimbusds_content_type_2_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_nimbusds_lang_tag_1_4_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_nimbusds_nimbus_jose_jwt_8_20_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_nimbusds_oauth2_oidc_sdk_8_36_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_mail_jakarta_mail_1_6_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_json_json_20210307.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_oauth2_client_2_4_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_security_2_4_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_config_5_4_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_core_5_4_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_oauth2_client_5_4_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_oauth2_core_5_4_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_oauth2_jose_5_4_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_test_5_4_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_web_5_4_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021_04_27_08_52_[Default_Changelist]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/application/hotspotapplication/CucmberTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/application/hotspotapplication/UserUnitTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/application/hotspotapplication/configs/SpringIntergrationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/application/hotspotapplication/steps/UserSteps.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/UserTests.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/HotspotApplication$Oauth2ClientSecurityConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.application.hotspotapplication.HotspotApplicationTests.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/surefire-reports/com.application.hotspotapplication.HotspotApplicationTests.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2021_04_21_07_33_[Default_Changelist]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2021_04_21_07_33__Default_Changelist_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021_04_21_07_39_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021_04_21_07_39__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021_04_27_08_52__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hotspot-application.iml" beforeDir="false" afterPath="$PROJECT_DIR$/hotspot-application.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/AccessTokenFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/AccessTokenFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/Oauth2ClientSecurityConfig.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/HotspotLocation/v1/HotspotControllerV1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/HotspotLocation/v1/HotspotControllerV1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/UsersHotspots/UsersHotspotsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots/UsersHotspots/UsersHotspotsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/users/UsersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/users/UsersService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/users/v1/UserControllerV1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/users/v1/UserControllerV1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/AccessTokenFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/AccessTokenFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/HotspotApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/HotspotApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/exceptions/ApiException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/exceptions/ApiException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/exceptions/ApiRequestException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/exceptions/ApiRequestException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/hotspots/UsersHotspots/UsersHotspotsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/hotspots/UsersHotspots/UsersHotspotsService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/users/UsersService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/users/UsersService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/users/v1/UserControllerV1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/users/v1/UserControllerV1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/utils/Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/utils/Constants.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/utils/GenericUtility.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/utils/GenericUtility.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/hotspots/HotspotLocation/v1/HotspotControllerV1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/application/hotspotapplication/requests/hotspots/HotspotLocation/v1/HotspotControllerV1.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -257,6 +271,9 @@
       <recent name="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/blank" />
       <recent name="$PROJECT_DIR$/src/main/java/com/application/hotspotapplication/requests/hotspots" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\bbdnet2344\Desktop\Hotspot application\hotspot_application\src\test" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.application.hotspotapplication" />
     </key>
@@ -279,6 +296,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="CucmberTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="hotspot-application" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.application.hotspotapplication.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.application.hotspotapplication" />
+      <option name="MAIN_CLASS_NAME" value="com.application.hotspotapplication.CucmberTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="HotspotApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="hotspot-application" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.application.hotspotapplication.HotspotApplication" />
@@ -289,6 +321,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.HotspotApplication" />
+        <item itemvalue="JUnit.CucmberTests" />
       </list>
     </recent_temporary>
   </component>
@@ -406,7 +439,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619448880695</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Integrated OAuth into required hotspots endpoints">
+      <created>1619555691030</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1619555691030</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -495,7 +535,8 @@
     <MESSAGE value="Added update querys to HotspotDAO and updated service methods" />
     <MESSAGE value="Refactored services to make use of more JPA generated queries" />
     <MESSAGE value="Refactored services and added ability to search for hotspots via category" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored services and added ability to search for hotspots via category" />
+    <MESSAGE value="Integrated OAuth into required hotspots endpoints" />
+    <option name="LAST_COMMIT_MESSAGE" value="Integrated OAuth into required hotspots endpoints" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
