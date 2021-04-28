@@ -43,13 +43,15 @@ public class Location implements Serializable {
   @JsonIgnore
   @OneToMany(
           mappedBy = "location",
-          cascade = CascadeType.ALL
+          cascade = CascadeType.ALL,
+          fetch = FetchType.LAZY
   )
   private List<Hotspot> hotspots = new ArrayList<>();
   @JsonIgnore
   @OneToMany(
           mappedBy = "location",
-          cascade = CascadeType.ALL
+          cascade = CascadeType.ALL,
+          fetch = FetchType.LAZY
   )
   private List<UsersHotspots> usersHotspots = new ArrayList<>();
 

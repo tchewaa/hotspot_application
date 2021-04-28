@@ -28,14 +28,16 @@ public class Category implements Serializable {
   @JsonIgnore
   @OneToMany(
           mappedBy = "category",
-          cascade = CascadeType.ALL
+          cascade = CascadeType.ALL,
+          fetch = FetchType.LAZY
   )
   private List<Hotspot> hotspots = new ArrayList<>();
 
   @JsonIgnore
   @OneToMany(
           mappedBy = "category",
-          cascade = CascadeType.ALL
+          cascade = CascadeType.ALL,
+          fetch = FetchType.LAZY
   )
   private List<UsersHotspots> usersHotspots = new ArrayList<>();
 

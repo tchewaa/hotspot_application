@@ -2,6 +2,8 @@ package com.application.hotspotapplication.requests.users;
 
 import com.application.hotspotapplication.requests.hotspots.UsersHotspots.UsersHotspots;
 import lombok.Data;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -29,6 +31,7 @@ public class Users {
   @Column(name = "active")
   private Boolean active;
 
-  @OneToMany(mappedBy = "user")
+  @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+  @Fetch(FetchMode.JOIN)
   private List<UsersHotspots> usersHotspots = new ArrayList<>();
 }
