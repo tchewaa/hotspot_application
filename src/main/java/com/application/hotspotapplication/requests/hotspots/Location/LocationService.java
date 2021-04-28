@@ -10,13 +10,11 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Comparator;
 import java.util.List;
-import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.TimeUnit;
 
@@ -100,7 +98,6 @@ public class LocationService {
   }
 
   @SneakyThrows
-  @Async
   private CompletableFuture<Location> fetchLocationFromApi(String addressQuery){
     String requestURL = Constants.POSSITIONSTACK_API_URL_FORWARD + positionStackApiKey + "&query=" + addressQuery + "&country=ZA";
     ResponseEntity<LocationData> responseEntity =  restTemplate.getForEntity(requestURL, LocationData.class);
@@ -111,11 +108,6 @@ public class LocationService {
     }
     throw new ApiRequestException("Cannot find location", HttpStatus.BAD_REQUEST);
   }
-
-  public Optional<Location> findLocationById(Long id){
-    return dao.findById(id);
-  }
-
 
   private Location getConfidentLocation(List<Location> locations){
     return locations.stream().max(Comparator.comparing(Location::getConfidence)).get();

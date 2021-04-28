@@ -5,7 +5,6 @@ import com.application.hotspotapplication.requests.hotspots.UsersHotspots.UsersH
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
